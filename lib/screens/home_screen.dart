@@ -26,8 +26,9 @@ class _HomeState extends State<Home> {
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
                 return Dismissible(
-                  onDismissed: (direction) {
-                    
+                  onDismissed: (direction) async {
+                    await eliminarVideojuego(snapshot.data?[index]['uid']);
+                    snapshot.data?.removeAt(index);
                   },
                   confirmDismiss: (direction) async {
                     bool result = false;

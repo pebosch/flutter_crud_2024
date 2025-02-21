@@ -29,3 +29,6 @@ Future<void> actualizarVideojuego( String uid, String nuevoVideojuego ) async {
   await db.collection("videojuegos").doc(uid).set({"nombre": nuevoVideojuego});
 }
 
+Future<void> eliminarVideojuego(String uid) async {
+  await db.collection("videojuegos").doc(uid).delete();
+}
