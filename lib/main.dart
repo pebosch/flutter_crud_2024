@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (context) => Home(),
         'insertar': (context) => InsertarVideojuegoScreen(),
+        'actualizar': (context) => ActualizarVideojuegoScreen(),
       },
     );
   }
