@@ -27,10 +27,12 @@ class _HomeState extends State<Home> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(snapshot.data?[index]['nombre']),
-                  onTap: () {
-                    Navigator.pushNamed(context, "actualizar", arguments: {
-                      "nombre": snapshot.data?[index]['nombre']
+                  onTap: () async {
+                    await Navigator.pushNamed(context, "actualizar", arguments: {
+                      "nombre": snapshot.data?[index]['nombre'],
+                      "uid": snapshot.data?[index]['uid'],
                     });
+                    setState(() {});
                   },
                 ); 
                   //

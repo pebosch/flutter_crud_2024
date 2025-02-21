@@ -34,7 +34,11 @@ class _ActualizarVideojuegoScreenState extends State<ActualizarVideojuegoScreen>
             ),
             ElevatedButton(
               onPressed: () async {
-                await actualizarVideojuego(argumentos['uid'], videojuegoController.text);
+                print(argumentos["uid"]);
+                await actualizarVideojuego(argumentos['uid'], videojuegoController.text).then((value){
+                  Navigator.pop(context);
+                });
+
               }, 
               child: Text('Actualizar') 
             ),

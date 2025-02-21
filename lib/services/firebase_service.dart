@@ -9,7 +9,13 @@ Future<List> getVideojuegos() async {
   QuerySnapshot queryVideojuegos = await collectionReferenceVideojuegos.get();
 
   queryVideojuegos.docs.forEach((documento) {
-    videojuegos.add(documento.data());
+    final Map<String, dynamic> data = documento.data() as Map<String, dynamic>;
+    final videojuego = {
+      "nombre": data['nombre'],
+      "uid": documento.id
+    };
+
+    videojuegos.add(videojuego);
   });
 
   return videojuegos;
